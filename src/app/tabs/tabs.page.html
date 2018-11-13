@@ -9,6 +9,9 @@
   <ion-tab tab="contact">
     <ion-router-outlet name="contact"></ion-router-outlet>
   </ion-tab>
+  <ion-tab tab="list">
+    <ion-router-outlet name="list"></ion-router-outlet>
+  </ion-tab>
 
   <ion-tab-bar slot="bottom">
 
@@ -26,6 +29,14 @@
       <ion-icon name="contacts"></ion-icon>
       <ion-label>Contact</ion-label>
     </ion-tab-button>
+
+    <ion-tab-button tab="list" href="/tabs/(list:list)">
+      <ion-icon name="bowtie"></ion-icon>
+      <ion-label>List</ion-label>
+    </ion-tab-button>
+
+
+
 
   </ion-tab-bar>
 
