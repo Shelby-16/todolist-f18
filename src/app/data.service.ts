@@ -1,0 +1,40 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+
+  constructor() { }
+  //method to store data
+  storeList( list:Array<string>){
+    return new Promise((resolve,reject)=>{
+      let data = JSON.stringify( list);
+      try{
+        window.localStorage.setItem('list', data);
+        if (window.localStorage.getItem('list')){
+          resolve( true);
+        }
+        else{
+          throw ('Save Failed');
+        }
+      }
+      catch(error){
+        reject(error);
+      }
+    });
+  }
+
+  //method to read data
+  loadList(){
+    return new Promise ((resolve,reject)=>{
+      let data = window.localStorage.getItem('list');
+      if (data){
+        resolve (JSON.parse(data);
+      }
+      else {
+        reject(null);
+      }
+    });
+  }
+}

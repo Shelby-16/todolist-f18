@@ -20,7 +20,7 @@ import { ListPageModule } from '../list/list.module';
     TabsPageRoutingModule,
     HomePageModule,
     AboutPageModule,
-    ContactPageModule
+    ContactPageModule,
     ListPageModule
   ],
   declarations: [TabsPage]
