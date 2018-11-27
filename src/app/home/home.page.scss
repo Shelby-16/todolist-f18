@@ -1,1 +1,19 @@
 
+$item-padding :1em;
+ion-item.task{
+  --color:black;
+  --padding-star: $item-padding;
+  --padding-end: $item-padding;
+  --padding-top: $item-padding;
+  --padding-bottom: $item-padding;
+
+
+}
+
+ion-item.task.done{
+  --background:lightblue;
+}
+
+ion-item h2.name{
+  font-weight: 600;
+}

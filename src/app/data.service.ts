@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {Task } from '../models/task';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ export class DataService {
 
   constructor() { }
   //method to store data
-  storeList( list:Array<string>){
+  storeList( list:Array<Task>){
     return new Promise((resolve,reject)=>{
       let data = JSON.stringify( list);
       try{
@@ -30,7 +31,7 @@ export class DataService {
     return new Promise ((resolve,reject)=>{
       let data = window.localStorage.getItem('list');
       if (data){
-        resolve (JSON.parse(data);
+        resolve (JSON.parse(data));
       }
       else {
         reject(null);

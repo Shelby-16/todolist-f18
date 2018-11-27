@@ -4,21 +4,34 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <h1> {{title}}</h1>
-  <ion-list>
 
-  <ion-item>
-    <ion-label position= "floating" >Add Fruit Name</ion-label>
-    <ion-input type="text" [(ngModel)]="newfruit"></ion-input>
+  <ion-content padding>
+    <ion-list type="true">
+      <ion-item>
+    <ion-label position= "floating" >Add New Task </ion-label>
+    <ion-input type="text" [(ngModel)]="taskInput"></ion-input>
   </ion-item>
-
 <ion-item>
-  <ion-button size="medium"  color ="primary" fill="outline" (click)= "addFruit()"> Add </ion-button>
+  <ion-button size="medium"  color ="primary" fill="solid" (click)= "addTask()"> Add </ion-button>
 </ion-item>
-
 </ion-list>
-  <h3 *ngFor = "let fruit of fruits">
-     {{fruit}}
-   </h3>
+
+<ion-list>
+  <ion-item *ngFor = "let item of tasks" class="task" [class.done] = "item.status" (click) =
+   "changeStatus(item.date)">
+  <ion-label>
+    <ion-text>
+      <h2 class="name">{{item.name}}</h2>
+      </ion-text>
+     <p>{{formatDate(item.date)}}</p>
+     </ion-label>
+     <!-- <ion-checkbox slot="end" color="dark" [checked] = "item.status" (click) =
+      "changeStatus(item.date)"></ion-checkbox> -->
+      <ion-button color="dark" slot="end" *ngIf="item.status" (click) =
+       "deleteItem(item.date)">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+
+   </ion-item>
+   </ion-list>
 </ion-content>
